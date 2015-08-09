@@ -1,0 +1,12 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<input type="button" value="Добавяне на нов график" name="Add new Schedule"
+       onclick="location.href='@Url.Action("CreateNewSchedule", "Home")'" />
+
+<input type="button" value="Дневен график" name="DateShedule"
+       onclick="location.href='@Url.Action("DateSchedule", "Home")'" />
+
+<input type="button" value="Лекарски график" name="DoctorShedule"
+       onclick="location.href='@Url.Action("DoctorSchedule", "Home")'" />
