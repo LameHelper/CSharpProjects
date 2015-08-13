@@ -135,6 +135,7 @@
     </Compile>
     <Compile Include="Models\Doctor.cs" />
     <Compile Include="Models\DoctorSchedule.cs" />
+    <Compile Include="Models\PatientList.cs" />
     <Compile Include="Models\Shift.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

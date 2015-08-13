@@ -17,7 +17,7 @@ namespace Registration.Models
 
         [Display(Name = "Име на лекар")]
         public string DoctorId { get; set; }
-        public virtual Doctor DoctorName  { get; set;}
+        //public virtual Doctor DoctorName  { get; set;}
 
         [Display(Name = "Смяна")]
         public int ShiftId { get; set; }       
