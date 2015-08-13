@@ -27,6 +27,7 @@ namespace Registration.Controllers
         [HttpPost]
         public ActionResult CreateNewSchedule(DoctorSchedule schedule)
         {
+            int a = 5;
             ViewBag.Doctors = db.Doctors.ToList().Select(x => new SelectListItem { Text = x.DoctorName, Value = x.DoctorId.ToString() });
             ViewBag.Shifts = db.Shifts.ToList().Select(x => new SelectListItem { Text = x.ShiftName, Value = x.ShiftId.ToString() });           
             return View();
