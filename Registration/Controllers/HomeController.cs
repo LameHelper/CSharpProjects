@@ -25,8 +25,17 @@ namespace Registration.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult CreateNewSchedule(DoctorSchedule schedule)
-        {           
+        {
+            if (ModelState.IsValid)
+            {
+                db.Schedules.Add(schedule);
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+
+           
             ViewBag.Doctors = db.Doctors.ToList().Select(x => new SelectListItem { Text = x.DoctorName, Value = x.DoctorId.ToString() });
             ViewBag.Shifts = db.Shifts.ToList().Select(x => new SelectListItem { Text = x.ShiftName, Value = x.ShiftId.ToString() });           
             return View();
