@@ -1,6 +1,7 @@
 ﻿using Registration.Models;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -16,17 +17,17 @@ namespace Registration.Controllers
             return View();
         }       
         [HttpGet]
-        public ActionResult CreateNewSchedule()
+        public ActionResult AddNewWorkSchedule()
             
         {
             ViewBag.Doctors = db.Doctors.ToList().Select(x => new SelectListItem { Text = x.DoctorName, Value = x.DoctorId.ToString() });
-            ViewBag.Shifts = db.Shifts.ToList().Select(x => new SelectListItem { Text = x.ShiftName, Value = x.ShiftId.ToString() });
+            ViewBag.Shifts = db.Shifts.ToList().Select(x => new SelectListItem { Text = x.ShiftStart, Value = x.ShiftId.ToString() });
             return View();
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult CreateNewSchedule(DoctorSchedule schedule)
+        public ActionResult AddNewWorkSchedule(Schedule schedule)
         {
             if (ModelState.IsValid)
             {
@@ -37,7 +38,7 @@ namespace Registration.Controllers
 
            
             ViewBag.Doctors = db.Doctors.ToList().Select(x => new SelectListItem { Text = x.DoctorName, Value = x.DoctorId.ToString() });
-            ViewBag.Shifts = db.Shifts.ToList().Select(x => new SelectListItem { Text = x.ShiftName, Value = x.ShiftId.ToString() });           
+            ViewBag.Shifts = db.Shifts.ToList().Select(x => new SelectListItem { Text = x.ShiftStart, Value = x.ShiftId.ToString() });           
             return View();
         }
 

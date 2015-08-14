@@ -7,8 +7,13 @@ namespace Registration.Controllers
     {
         public IDbSet<Doctor> Doctors { get; set; }
 
+        public IDbSet<Patient> Patients { get; set; }
+
+        public IDbSet<Schedule> Schedules { get; set; }
+
+        public IDbSet<Exam> Exams { get; set; }
+
         public IDbSet<Shift> Shifts { get; set; }
 
-        public IDbSet<DoctorSchedule> Schedules { get; set; }
     }
 }

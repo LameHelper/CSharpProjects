@@ -7,12 +7,13 @@ using System.Web;
 
 namespace Registration.Models
 {
-    public class DoctorSchedule
+    public class Schedule
     {
         [Key]
         public int ID { get; set; }
 
         [Display(Name = "Дата")]
+        [Required]
         public string Date { get; set; }
 
         [Display(Name = "Име на лекар")]
@@ -21,6 +22,7 @@ namespace Registration.Models
 
         [Display(Name = "Смяна")]
         public int ShiftId { get; set; }       
-        public  virtual Shift Shift { get; set; }
+        //public virtual string ShiftStart { get; set; }
+        //public virtual string ShiftEnd { get; set; }
     }
 }
