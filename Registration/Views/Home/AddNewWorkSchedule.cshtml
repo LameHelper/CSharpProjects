@@ -1,7 +1,7 @@
 ﻿@model Registration.Models.Schedule
 
 @{
-    ViewBag.Title = "Добавяне на график"; // add ne schedule
+    ViewBag.Title = "Добавяне на график"; // add new schedule
 }
 <link rel="stylesheet" type="text/css" href="~/Content/jquery.datetimepicker.css" />
 <script src="~/Scripts/jquery-2.1.4.js"></script>
@@ -37,7 +37,10 @@
             <div class="col-md-10">
                 @Html.DropDownListFor(model => model.ShiftId, (IEnumerable<SelectListItem>)ViewBag.Shifts)
                 @Html.ValidationMessageFor(model => model.ShiftId, "", new { @class = "text-danger" })
-            </div>
+           
+                <input type="button" value="Добавяне на нова смяна" name="Add new work shift"
+                       onclick="location.href='@Url.Action("AddNewWorkShift", "Home")'" />
+            </div>           
         </div>
 
         <div class="form-group">
