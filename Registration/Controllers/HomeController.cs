@@ -34,6 +34,23 @@ namespace Registration.Controllers
             {
                 db.Schedules.Add(schedule);
                 db.SaveChanges();
+                IList<Shift> currentShift = db.Shifts.Where(x => x.ShiftId == schedule.ShiftId).ToList();
+
+                string dateAndTimeStart = schedule.Date + " " + currentShift[0].ShiftStart;
+                DateTime shiftStart = Convert.ToDateTime(dateAndTimeStart);
+                string dateAndTimeEnd = schedule.Date + " " + currentShift[0].ShiftEnd;
+                DateTime shiftEnd = Convert.ToDateTime(dateAndTimeEnd);
+                double minutestDifference = (shiftEnd - shiftStart).TotalMinutes;
+                double examLines = minutestDifference / 20;
+           
+                for (int i = 0; i < examLines; i++)
+                {
+                    Exam exam = new Exam { DoctorId = schedule.DoctorId, ExamTime = shiftStart };
+                    shiftStart = shiftStart.AddMinutes(20);
+                    db.Exams.Add(exam);
+                    db.SaveChanges();
+                }
+               
                 return RedirectToAction("AddNewWorkSchedule","Home");
             }
 
