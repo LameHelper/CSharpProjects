@@ -15,7 +15,24 @@ namespace Registration.Controllers
         public ActionResult Index()
         {                       
             return View();
-        }       
+        }
+        [HttpGet]
+        public ActionResult AddNewDoctor()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult AddNewDoctor(Doctor newDoctor)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Doctors.Add(newDoctor);
+                db.SaveChanges();              
+            }
+            return RedirectToAction("Index");
+        }
         [HttpGet]
         public ActionResult AddNewWorkSchedule()
             
@@ -36,9 +53,9 @@ namespace Registration.Controllers
                 db.SaveChanges();
                 IList<Shift> currentShift = db.Shifts.Where(x => x.ShiftId == schedule.ShiftId).ToList();
 
-                string dateAndTimeStart = schedule.Date + " " + currentShift[0].ShiftStart;
+                string dateAndTimeStart = schedule.Date.ToString("dd/MM/yyyy") + " " + currentShift[0].ShiftStart;
                 DateTime shiftStart = Convert.ToDateTime(dateAndTimeStart);
-                string dateAndTimeEnd = schedule.Date + " " + currentShift[0].ShiftEnd;
+                string dateAndTimeEnd = schedule.Date.ToString("dd/MM/yyyy") + " " + currentShift[0].ShiftEnd;
                 DateTime shiftEnd = Convert.ToDateTime(dateAndTimeEnd);
                 double minutestDifference = (shiftEnd - shiftStart).TotalMinutes;
                 double examLines = minutestDifference / 20;
@@ -85,6 +102,11 @@ namespace Registration.Controllers
             return View();
         }
 
+        [HttpGet]
+        public ActionResult DateSchedule()
+        {
+            return View();
+        }
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";

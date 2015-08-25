@@ -7,7 +7,9 @@ namespace Registration.Models
     {
         [Key]
         public int ShiftId { get; set; }
+        [Display(Name = "Час на зпочване")]
         public string ShiftStart { get; set; }
+        [Display(Name = "Час на завършване")]
         public string ShiftEnd { get; set; }
     }
 }

@@ -14,7 +14,7 @@ namespace Registration.Models
 
         [Display(Name = "Дата")]
         [Required]
-        public string Date { get; set; }
+        public DateTime Date { get; set; }
 
         [Display(Name = "Име на лекар")]
         public int DoctorId { get; set; }

@@ -1,0 +1,13 @@
+﻿@model IEnumerable<Registration.Controllers.Exam>
+    @foreach (var item in Model)
+    {
+        <table>
+            <tr>
+                <td>@item.ExamTime</td>
+                <td>@item.PatientId</td>
+            </tr>
+        </table>
+
+
+    }
+    

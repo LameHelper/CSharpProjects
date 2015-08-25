@@ -7,14 +7,13 @@
 <script src="~/Scripts/jquery-2.1.4.js"></script>
 <script src="~/Scripts/jquery.datetimepicker.js"></script>
 
-<h2>Добавяне на нова смяна</h2>
+<h2>Добавяне на нова работна смяна</h2>
 
 @using (Html.BeginForm()) 
 {
     @Html.AntiForgeryToken()
-    
-    <div class="form-horizontal">
-        <h4>Смяна</h4>
+        <div class="form-horizontal">
+ 
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
@@ -35,7 +34,7 @@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
+                <input type="submit" value="Създаване" class="btn btn-default" />
             </div>
         </div>
     </div>

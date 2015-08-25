@@ -1,0 +1,8 @@
+﻿@model IEnumerable<Registration.Models.Doctor>  
+@{
+    ViewBag.Title = "DateSchedule";
+}
+@foreach (var doctor in Model)
+{
+    @Html.Partial("_ExamTable", doctor)
+}

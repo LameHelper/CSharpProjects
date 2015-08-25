@@ -10,6 +10,7 @@ namespace Registration.Models
     {
         [Key]
         public int DoctorId { get; set; }
+        [Display(Name = "Име на лекар")]
         public string DoctorName { get; set; }
     }
 }
